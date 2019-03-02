@@ -1,9 +1,9 @@
 import numpy as np
 
 def getTrainAndValidation(qry, doc, QDrel, num_vocab, type_rank, type_feat, percent = 100):
+    train={"data":[], "label":[]}
     if type_rank == 'pointwise':
         if type_feat == 'sparse':
-            train={"data":[], "label":[]}
             tfvc = np.zeros(num_vocab)
             for qry_filename in QDrel:
                 tfvq = np.zeros(num_vocab)
@@ -16,4 +16,9 @@ def getTrainAndValidation(qry, doc, QDrel, num_vocab, type_rank, type_feat, perc
                         tfvd[word] += 1
                     a_data = np.append(a_data, tfvd)
                     train["data"].append(a_data)
+                    train["label"].append(QDrel[qry_filename][doc_filename])
             np.array(train["data"])
+            np.array(train["label"])
+            return train
+        #if type_feat == 'dense':
+            
