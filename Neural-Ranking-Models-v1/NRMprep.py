@@ -20,5 +20,5 @@ def getTrainAndValidation(qry, doc, QDrel, num_vocab, type_rank, type_feat, perc
             np.array(train["data"])
             np.array(train["label"])
             return train
-        #if type_feat == 'dense':
+        if type_feat == 'embedding':
             
