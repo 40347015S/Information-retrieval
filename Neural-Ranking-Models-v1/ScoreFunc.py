@@ -9,7 +9,7 @@ def creatModel(input_dim):
     h1 = Dense(units=128, activation="relu")(input_layer)
     h2 = Dense(units=128, activation="relu")(h1)
     h3 = Dense(units=128, activation="relu")(h2)
-    predicts = Dense(1, activation='sigmoid')(h3)
+    predicts = Dense(1, activation='linear')(h3)
     model = Model(input=[input_layer], output=predicts)
     return model
 
